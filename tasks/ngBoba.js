@@ -11,6 +11,9 @@ var addBoba = require('../node_modules/ng-boba/src/ngBobaMain');
 
 module.exports = function(grunt) {
 
+  // we need.
+  grunt.loadNpmTasks('grunt-contrib-concat');
+
   grunt.registerMultiTask('ngBoba', 'The best Grunt plugin ever.', function() {
       // Merge task-specific and/or target-specific options with these defaults.
 
