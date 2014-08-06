@@ -21,12 +21,11 @@ module.exports = function(grunt) {
       });
 
       var config = {};
-
       var fileList = [];
+      var fileDest;
+
       // Iterate over all src-dest file pairs.
       this.files.forEach(function(f) {
-
-
           var src = f.src.filter(function(filepath) {
               // Warn on and remove invalid source files (if nonull was set).
               if (!grunt.file.exists(filepath)) {
@@ -42,13 +41,22 @@ module.exports = function(grunt) {
               return;
           } else {
               fileList = fileList.concat(src);
-
+              fileDest = f.dest;
           }
       });
+
       config.files = fileList;
       config.modules = options.modules;
       addBoba(config).then(function(files) {
-          console.log(files);
+          grunt.initConfig({
+              concat: {
+                  basic: {
+                      src: files,
+                      dest: fileDest
+                  }
+              }
+          });
+          grunt.task.run('concat');
           done();
       }).done();
   });
