@@ -7,7 +7,7 @@
 */
 
 'use strict';
-var boba = require('../node_modules/ng-boba/src/ngBobaMain');
+var addBoba = require('../node_modules/ng-boba/src/ngBobaMain');
 
 module.exports = function(grunt) {
 
@@ -15,8 +15,9 @@ module.exports = function(grunt) {
       // Merge task-specific and/or target-specific options with these defaults.
 
       var done = this.async();
+
       var options = this.options({
-          compress: false
+          modules: []
       });
 
       var config = {};
@@ -45,8 +46,8 @@ module.exports = function(grunt) {
           }
       });
       config.files = fileList;
-      config.modules = ['frog'];
-      boba(config).then(function(files) {
+      config.modules = options.modules;
+      addBoba(config).then(function(files) {
           console.log(files);
           done();
       }).done();
