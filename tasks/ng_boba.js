@@ -7,7 +7,7 @@
 */
 
 'use strict';
-var boba = require('../node_modules/ng-boba/src/ng-boba-main');
+var boba = require('../node_modules/ng-boba/src/ngBobaMain');
 
 module.exports = function(grunt) {
 
@@ -21,12 +21,12 @@ module.exports = function(grunt) {
 
       var config = {};
 
+      var fileList = [];
       // Iterate over all src-dest file pairs.
       this.files.forEach(function(f) {
 
 
           var src = f.src.filter(function(filepath) {
-
               // Warn on and remove invalid source files (if nonull was set).
               if (!grunt.file.exists(filepath)) {
                   grunt.log.warn('Source file not found.');
@@ -40,10 +40,11 @@ module.exports = function(grunt) {
               grunt.log.warn('Destination not written because src files were empty.');
               return;
           } else {
-              config.files = src
+              fileList = fileList.concat(src);
+
           }
       });
-
+      config.files = fileList;
       config.modules = ['frog'];
       boba(config).then(function(files) {
           console.log(files);
