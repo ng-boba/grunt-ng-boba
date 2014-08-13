@@ -20,7 +20,8 @@ module.exports = function(grunt) {
       var done = this.async();
 
       var options = this.options({
-          modules: []
+          modules: [],
+          moduleFormat: "anonymous"
       });
 
       var config = {};
@@ -50,6 +51,7 @@ module.exports = function(grunt) {
 
       config.files = fileList;
       config.modules = options.modules;
+      config.moduleFormat = options.moduleFormat;
       addBoba(config).then(function(files) {
           grunt.initConfig({
               concat: {
