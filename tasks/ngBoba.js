@@ -53,6 +53,7 @@ module.exports = function(grunt) {
       config.modules = options.modules;
       config.moduleFormat = options.moduleFormat;
       config.dependencies = options.dependencies;
+      config.ignoreModules = options.ignoreModules;
       addBoba(config).then(function(files) {
           grunt.initConfig({
               concat: {
