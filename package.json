@@ -1,23 +1,28 @@
 {
+  "private": true,
   "name": "grunt-ng-boba",
-  "description": "The best Grunt plugin ever.",
+  "description": "TBD",
   "version": "0.1.0",
-  "homepage": "https://github.com/jessicavreeland/grunt-ng-boba",
+  "homepage": "https://github.com/ng-boba/grunt-ng-boba",
   "author": {
-    "name": "Jessica Vreeland",
-    "email": "jessicavreeland@gmail.com"
+    "name": "Jessica Vreeland"
   },
+  "contributors": [
+    {
+      "name": "Guerric Sloan"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jessicavreeland/grunt-ng-boba.git"
+    "url": "git://github.com/ng-boba/grunt-ng-boba.git"
   },
   "bugs": {
-    "url": "https://github.com/jessicavreeland/grunt-ng-boba/issues"
+    "url": "https://github.com/ng-boba/grunt-ng-boba/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/jessicavreeland/grunt-ng-boba/blob/master/LICENSE-MIT"
+      "url": "https://github.com/ng-boba/grunt-ng-boba/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
@@ -26,16 +31,17 @@
   "scripts": {
     "test": "grunt test"
   },
+  "dependencies": {
+    "ng-boba": "ng-boba/ng-boba"
+  },
   "devDependencies": {
-    "grunt-contrib-jshint": "^0.9.2",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
     "grunt": "~0.4.5"
   },
   "peerDependencies": {
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin-soon"
   ]
 }
+
