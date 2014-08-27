@@ -7,7 +7,7 @@
 */
 
 'use strict';
-var addBoba = require('../node_modules/ng-boba/src/ngBobaMain');
+var addBoba = require('ng-boba');
 
 module.exports = function(grunt) {
 
