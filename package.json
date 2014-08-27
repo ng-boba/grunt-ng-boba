@@ -32,7 +32,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "ng-boba": "ng-boba/ng-boba"
+    "ng-boba": "ng-boba/ng-boba",
+    "grunt-contrib-concat": "*"
   },
   "devDependencies": {
     "grunt": "~0.4.5"
