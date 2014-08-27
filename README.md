@@ -60,3 +60,49 @@ Default value: `[]`
 
 Scripts that cannot be detected by Angular's dependency injection, but are required for the project.
 An example of this would be jQuery.
+
+#### options.shims
+Type: `{}`
+
+Allows dependencies to specified manually
+
+#### options.ignoreModules
+Type: `String[]`
+
+Modules that will not be included in the bundle.
+
+
+
+#### Usage Examples
+
+```js
+ggrunt.initConfig({
+    ngBoba: {
+        options: {
+            modules: ["myModule"],
+            moduleFormat: "anonymous",
+            dependencies: [
+                "src/someDependency.js"
+            ],
+            "ignoreModules": [
+                "mModule"
+            ],
+
+            "shims": {
+                "file/path.js": [
+                  "moduleName",
+                  "moduleName.ControllerName",
+                  "moduleName.directiveName"
+                ],
+                "other/file.js": [
+                  "moduleName.directiveName2"
+                ]
+            },
+        },
+        build: {
+            src: 'src/project/**/*.js',
+            dest: 'build/project.min.js'
+        }
+    }
+});
+```

@@ -54,16 +54,9 @@ module.exports = function(grunt) {
       config.moduleFormat = options.moduleFormat;
       config.dependencies = options.dependencies;
       config.ignoreModules = options.ignoreModules;
-      addBoba(config).then(function(files) {
-          grunt.initConfig({
-              concat: {
-                  basic: {
-                      src: files,
-                      dest: fileDest
-                  }
-              }
-          });
-          grunt.task.run('concat');
+      config.shims = options.shims;
+      addBoba(config).then(function(output) {
+          console.log(output.files);
           done();
       }).done();
   });
