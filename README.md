@@ -76,7 +76,7 @@ Modules that will not be included in the bundle.
 #### Usage Examples
 
 ```js
-ggrunt.initConfig({
+grunt.initConfig({
     ngBoba: {
         options: {
             modules: ["myModule"],
@@ -84,11 +84,10 @@ ggrunt.initConfig({
             dependencies: [
                 "src/someDependency.js"
             ],
-            "ignoreModules": [
+            ignoreModules: [
                 "mModule"
             ],
-
-            "shims": {
+            shims: {
                 "file/path.js": [
                   "moduleName",
                   "moduleName.ControllerName",
