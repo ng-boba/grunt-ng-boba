@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "grunt-ng-boba",
-  "description": "TBD",
+  "description": "Grunt wrapper for ng-boba, a flexible dependency management tool.",
   "version": "0.1.0",
   "homepage": "https://github.com/ng-boba/grunt-ng-boba",
   "author": {
