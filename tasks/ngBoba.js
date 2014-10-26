@@ -59,10 +59,12 @@ module.exports = function(grunt) {
     config.dependencies = options.dependencies;
     config.ignoreModules = options.ignoreModules;
     config.shims = options.shims;
+    var name = this.name;
+    var target = this.target;
     addBoba(config).then(function(output) {
-
+      
       // let's export our boba tasks for general grunt consumption
-      grunt.config.set('ngBoba.output', output);
+      grunt.config.set(name + '.' + target + '.output', output);
       done(output);
     }).done();
   });
