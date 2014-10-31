@@ -48,11 +48,14 @@ module.exports = function(grunt) {
     });
 
     // TODO: consider using grunt's internal require options to keep errors in grunt land
+    config.verbose = grunt.option('debug') || false;
     config.output = options.output;
     config.files = fileList;
     config.modules = options.modules;
     config.moduleFormat = options.moduleFormat;
     config.dependencies = options.dependencies;
+
+    // TODO: consider a default module set for angular bits?
     config.ignoreModules = options.ignoreModules;
     config.shims = options.shims;
     var name = this.name;
