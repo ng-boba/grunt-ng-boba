@@ -1,8 +1,8 @@
 /*
  * grunt-ng-boba
- * https://github.com/jessicavreeland/grunt-ng-boba
+ * https://github.com/ng-boba/grunt-ng-boba
  *
- * Copyright (c) 2014 Jessica Vreeland
+ * Copyright (c) 2014 Jessica Vreeland, Guerric Sloan
  * Licensed under the MIT license.
  */
 
@@ -11,10 +11,7 @@ var addBoba = require('ng-boba');
 
 module.exports = function(grunt) {
 
-  // we need.
-  grunt.loadNpmTasks('grunt-contrib-concat');
-
-  grunt.registerMultiTask('ngBoba', 'Flexible dependency management.', function() {
+  grunt.registerMultiTask('ngBoba', 'Angular dependency manager.', function() {
     var done = this.async();
 
     var options = this.options({
@@ -42,8 +39,7 @@ module.exports = function(grunt) {
       if (src.length === 0) {
 
         // TODO: better error reporting
-        grunt.log.warn('Destination not written because src files were empty.');
-        return;
+        grunt.log.warn('Empty source list specified.');
       } else {
 
         // @note: can save f.dest for future functionality
@@ -52,19 +48,29 @@ module.exports = function(grunt) {
     });
 
     // TODO: consider using grunt's internal require options to keep errors in grunt land
+    config.verbose = grunt.option('debug') || false;
     config.output = options.output;
     config.files = fileList;
     config.modules = options.modules;
     config.moduleFormat = options.moduleFormat;
     config.dependencies = options.dependencies;
+
+    // TODO: consider a default module set for angular bits?
     config.ignoreModules = options.ignoreModules;
     config.shims = options.shims;
-    addBoba(config).then(function(output) {
+    var name = this.name;
+    var target = this.target;
+    try {
+      addBoba(config).then(function(output) {
 
-      // let's export our boba tasks for general grunt consumption
-      grunt.config.set('ngBoba.output', output);
-      done(output);
-    }).done();
+        // let's export our boba tasks for general grunt consumption
+        grunt.config.set(name + '.' + target + '.output', output);
+        done(output);
+      }).done();
+    } catch (msg) {
+      grunt.log.error(msg);
+    }
+
   });
 
 };
