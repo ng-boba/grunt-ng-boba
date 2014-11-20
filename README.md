@@ -1,11 +1,13 @@
-# grunt-ng-boba
-
-> Grunt task for ng-boba, an Angular dependency manager.
+grunt-ng-boba
+===================================
+> Grunt task for ngBoba: Angular Dependency Manager
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide,
+ as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins.
+Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
 npm install grunt-ng-boba --save-dev
@@ -17,12 +19,12 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-ng-boba');
 ```
 
-## The "ng_boba" task
+## The "ngBoba" task
 
 ### Overview
 In your project's Gruntfile, add a section named `ngBoba` to the data object passed into `grunt.initConfig()`.
 
-Check out our sample project [ng-boba-sandbox](https://github.com/ng-boba/ng-boba-sandbox) to see an example of how to use ngBoba with grunt.
+Check out our seed project [ng-boba-seed](https://github.com/ng-boba/ng-boba-seed) to see an example of how to use ngBoba with grunt.
 
 ```js
 grunt.initConfig({
