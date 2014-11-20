@@ -48,7 +48,7 @@ module.exports = function(grunt) {
     });
 
     // TODO: consider using grunt's internal require options to keep errors in grunt land
-    config.verbose = grunt.option('debug') || false;
+    config.verbose = options.verbose || grunt.option('debug') || false;
     config.output = options.output;
     config.files = fileList;
     config.modules = options.modules;
